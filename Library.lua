@@ -768,27 +768,27 @@ do
                 end)
             end
 
-            ContextMenu:AddOption('Copy color', function()
+            ContextMenu:AddOption('copy color', function()
                 Library.ColorClipboard = ColorPicker.Value
-                Library:Notify('Copied color!', 2)
+                Library:Notify('copied color!', 2)
             end)
 
-            ContextMenu:AddOption('Paste color', function()
+            ContextMenu:AddOption('paste color', function()
                 if not Library.ColorClipboard then
-                    return Library:Notify('You have not copied a color!', 2)
+                    return Library:Notify('you have not copied a color!', 2)
                 end
                 ColorPicker:SetValueRGB(Library.ColorClipboard)
             end)
 
 
-            ContextMenu:AddOption('Copy HEX', function()
+            ContextMenu:AddOption('copy hex', function()
                 pcall(setclipboard, ColorPicker.Value:ToHex())
-                Library:Notify('Copied hex code to clipboard!', 2)
+                Library:Notify('copied hex code to clipboard!', 2)
             end)
 
-            ContextMenu:AddOption('Copy RGB', function()
+            ContextMenu:AddOption('copy rgb', function()
                 pcall(setclipboard, table.concat({ math.floor(ColorPicker.Value.R * 255), math.floor(ColorPicker.Value.G * 255), math.floor(ColorPicker.Value.B * 255) }, ', '))
-                Library:Notify('Copied RGB values to clipboard!', 2)
+                Library:Notify('copied RGB values to clipboard!', 2)
             end)
 
         end
